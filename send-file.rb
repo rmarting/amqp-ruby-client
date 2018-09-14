@@ -52,6 +52,8 @@ else
   abort "Usage: send-file.rb <connection-url> <address> <message-number> <path-to-file>\n"
 end
 
+puts "Sending #{message_number} messages to #{conn_url}"
+
 handler = SendHandler.new(conn_url, address, message_number.to_i, file_path)
 container = Qpid::Proton::Container.new(handler)
 container.run
